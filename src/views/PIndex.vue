@@ -27,7 +27,7 @@
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { getProducts } from '@/api/products';
-import { get } from 'http';
+
 
 const products = ref([])
 const loading = ref(true)
