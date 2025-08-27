@@ -3,10 +3,10 @@
 @tailwind utilities; */
 @import "tailwindcss";
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+.container{
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
 }
+
 
