@@ -418,14 +418,14 @@
 
 
 <template>
-  <div class="max-h-[800px] relative">
+  <div class="max-h-[800px] h-full relative">
     <Swiper
         :modules="[Pagination, Autoplay]"
         :slides-per-view="1"
         :loop="true"
         :autoplay="{ delay: 5000, disableOnInteraction: false }"
         pagination
-        class="w-full max-h-[800px] rounded-xl"
+        class="w-full max-h-[800px]"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
         @autoplayTimeLeft="onAutoplayTimeLeft"
@@ -439,7 +439,7 @@
         <img
             v-if="slide.img"
             :src="slide?.img"
-            class="w-full h-[800px] object-cover rounded-xl"
+            class="w-full h-[800px] object-cover"
             alt=""
         />
 
@@ -448,7 +448,7 @@
             v-if="slide.video"
             :ref="el => (videoRefs[i] = el)"
             :src="slide?.video"
-            class="w-full h-[800px] object-cover rounded-xl"
+            class="w-full h-[800px] object-cover"
             muted
             playsinline
         ></video>
@@ -456,7 +456,7 @@
         <!-- text content at bottom -->
         <div
             class="absolute bottom-0 pb-40 text-center w-full p-6 text-white z-10
-                 bg-gradient-to-t from-black/100 to-transparent rounded-b-xl"
+                 bg-gradient-to-t from-black/100 to-transparent"
         >
           <h1 class="mb-2 text-8xl uppercase font-[900] tracking-[-5px]">
             {{ slide?.title }}
@@ -544,17 +544,17 @@
       <!-- Prev -->
       <button
           @click="goPrev"
-          class="w-10 h-10 flex items-center justify-center bg-gray-600 rounded-full shadow-md"
+          class="w-10 h-10 flex items-center justify-center bg-gray-300 rounded-full shadow-md"
       >
-        <span class="text-black text-lg">‹</span>
+        <span class="text-black text-xl leading-none">‹</span>
       </button>
 
       <!-- Next -->
       <button
           @click="goNext"
-          class="w-10 h-10 flex items-center justify-center bg-gray-600 rounded-full shadow-md"
+          class="w-10 h-10 flex items-center justify-center bg-gray-300 rounded-full shadow-md"
       >
-        <span class="text-black text-lg">›</span>
+        <span class="text-black text-xl leading-none">›</span>
       </button>
     </div>
   </div>
