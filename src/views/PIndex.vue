@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <CSwipper/>
@@ -7,3 +8,4 @@
 <script setup lang="ts">
 import CSwipper from '@/components/swiperr/swipper.vue'
 </script>
+
