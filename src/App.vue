@@ -1,10 +1,6 @@
-<script setup lang="ts">
+<template>
+  <router-view />
+</template>
+<script setup>
 
 </script>
-
-<template>
- <RouterView/>
-</template>
-<style>
-
-</style>
