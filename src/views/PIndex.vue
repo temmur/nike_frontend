@@ -2,10 +2,11 @@
 <template>
   <div>
     <CSwipper/>
-    <p>Hello</p>
+    <CPlayGround/>
   </div>
 </template>
 <script setup lang="ts">
 import CSwipper from '@/components/swiperr/swipper.vue'
+import CPlayGround from "@/components/Sections/CPlayGround.vue";
 </script>
 
