@@ -1,3 +1,15 @@
 {
-  "hello": "Hello"
+  "header": {
+    "find": "Find a Store",
+    "help": "Help",
+    "join": "Join Us",
+    "signin": "Sign In",
+    "search": "Search",
+    "new": "New",
+    "men": "Men",
+    "women": "Women",
+    "kids": "Kids",
+    "jordan": "Jordan",
+    "sport": "Sport"
+  }
 }
