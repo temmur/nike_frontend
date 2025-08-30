@@ -425,7 +425,7 @@
         :loop="true"
         :autoplay="{ delay: 5000, disableOnInteraction: false }"
         pagination
-        class="w-full max-h-[800px]"
+        class="w-full max-h-[800px] z-0"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
         @autoplayTimeLeft="onAutoplayTimeLeft"
@@ -439,19 +439,19 @@
         <img
             v-if="slide.img"
             :src="slide?.img"
-            class="w-full h-[800px] object-cover"
+            class="w-full h-[800px] object-cover relative z-0"
             alt=""
         />
 
-        <!-- background video -->
         <video
             v-if="slide.video"
             :ref="el => (videoRefs[i] = el)"
             :src="slide?.video"
-            class="w-full h-[800px] object-cover"
+            class="w-full h-[800px] object-cover relative z-0"
             muted
             playsinline
         ></video>
+
 
         <!-- text content at bottom -->
         <div
@@ -520,6 +520,7 @@
           />
         </svg>
 
+
         <!-- inner icon -->
         <div
             class="relative z-10 flex items-center justify-center rounded-full"
@@ -558,6 +559,7 @@
       </button>
     </div>
   </div>
+
 </template>
 
 <script setup>

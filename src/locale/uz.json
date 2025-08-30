@@ -1,3 +1,15 @@
 {
-  "hello": "Salom"
+  "header": {
+    "find": "Do‘kon topish",
+    "help": "Yordam",
+    "join": "Bizga qo‘shiling",
+    "signin": "Kirish",
+    "search": "Qidirish",
+    "new": "Yangi",
+    "men": "Erkaklar",
+    "women": "Ayollar",
+    "kids": "Bolalar",
+    "jordan": "Jordan",
+    "sport": "Sport"
+  }
 }

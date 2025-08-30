@@ -6,7 +6,7 @@
             @click="langSwitcher(lang.code)"
     >{{lang.label}}</button>
   </div>
-  {{t('hello')}}
+  {{t('header.title')}}
 </template>
 <script setup lang="ts">
 import {ref} from "vue";
