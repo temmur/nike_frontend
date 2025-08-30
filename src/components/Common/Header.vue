@@ -21,7 +21,7 @@
     </div>
 
     <!-- MAIN HEADER -->
-    <div class="flex items-center justify-between px-6 py-3 bg-white">
+    <div class="flex items-center justify-between px-6 py-3 bg-white">  
       <!-- Logo -->
       <div class="flex items-center space-x-4">
         <img src="../image/img_2.png" alt="Nike" class="w-10 h-10 cursor-pointer" />
