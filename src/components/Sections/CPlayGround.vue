@@ -28,7 +28,7 @@ const languages = ref([
     code: 'en'
   },
 ])
-const langSwitcher =(lang: string)=> {
+const langSwitcher =(lang:string)=> {
   locale.value = lang
   localStorage.setItem('locale', lang)
 }

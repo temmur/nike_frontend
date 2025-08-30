@@ -1,7 +1,8 @@
 <template>
   <header class="w-full shadow-sm relative z-50">
     <!-- TOP BAR -->
-    <div class="flex items-center justify-between bg-gray-50 text-sm px-6 py-2">
+    <div class="bg-gray-50 text-sm px-6 py-2">
+    <div class="container flex items-center justify-between">
       <!-- Chap: boshqa logolar -->
       <div class="flex items-center space-x-4">
         <img src="../image/img.png" alt="Jordan" class="h-4 cursor-pointer" />
@@ -19,97 +20,100 @@
         <a href="#" class="hover:text-black">{{ t('header.signin') }}</a>
       </div>
     </div>
+    </div>
 
     <!-- MAIN HEADER -->
-    <div class="flex items-center justify-between px-6 py-3 bg-white">  
-      <!-- Logo -->
-      <div class="flex items-center space-x-4">
-        <img src="../image/img_2.png" alt="Nike" class="w-10 h-10 cursor-pointer" />
-      </div>
+    <div class="px-6 py-3 bg-white">
+      <div class="container flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center space-x-4">
+          <img src="../image/img_2.png" alt="Nike" class="w-10 h-10 cursor-pointer" />
+        </div>
 
-      <!-- Menyu -->
-      <nav class="flex items-center space-x-8">
-        <div
-            v-for="(menu, index) in menus"
-            :key="index"
-            class="relative cursor-pointer"
-            @mouseenter="hoverMenu = menu.key"
-            @mouseleave="hoverMenu = null"
-        >
+        <!-- Menyu -->
+        <nav class="flex items-center space-x-8">
+          <div
+              v-for="(menu, index) in menus"
+              :key="index"
+              class="relative cursor-pointer"
+              @mouseenter="hoverMenu = menu.key"
+              @mouseleave="hoverMenu = null"
+          >
           <span
               class="font-medium hover:text-gray-800 border-b-2 border-transparent"
               :class="{ 'border-black': hoverMenu === menu.key }"
           >
             {{ t('header.' + menu.key) }}
           </span>
-        </div>
-      </nav>
+          </div>
+        </nav>
 
-      <!-- O‘ng taraf: Search va iconlar -->
-      <div class="flex items-center space-x-4">
-        <!-- Search -->
-        <CInput
-            v-model="val"
-            @click="hideHeader()"
-            variant="light"
-            class="py-0 px-0 rounded-full border-transparent bg-[#f5f5f5]! justify-center hover:bg-[#E5E5E5]! transition"
-            :placeholder="t('header.search')"
-            input-class=""
-        >
-          <template #prefix>
-            <div
-                class="p-3 border border-transparent rounded-full bg-[#f5f5f5] justify-center hover:bg-[#cacacb] transition"
-            >
-              <img src="../image/img_3.png" alt="search" class="h-5 w-5" />
-            </div>
-          </template>
-        </CInput>
-        <Csearch @cancel="hideHeader" class="border-b-black text-gray-800" v-if="toggleHeader" />
-
-        <!-- 🌐 Til tanlash dropdown -->
-        <div class="relative">
-          <button
-              @click="isOpen = !isOpen"
-              class="flex items-center gap-2 border rounded-full px-3 py-1.5 cursor-pointer bg-white shadow-sm hover:bg-gray-50 transition"
+        <!-- O‘ng taraf: Search va iconlar -->
+        <div class="flex items-center space-x-4">
+          <!-- Search -->
+          <CInput
+              v-model="val"
+              @click="hideHeader()"
+              variant="light"
+              class="py-0 px-0 rounded-full border-transparent bg-[#f5f5f5]! justify-center hover:bg-[#E5E5E5]! transition"
+              :placeholder="t('header.search')"
+              input-class=""
           >
-            <span class="font-medium">{{ currentLangLabel }}</span>
-            <svg
-                class="w-4 h-4 text-gray-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-
-          <transition
-              enter-active-class="transition ease-out duration-200"
-              enter-from-class="opacity-0 translate-y-1"
-              enter-to-class="opacity-100 translate-y-0"
-              leave-active-class="transition ease-in duration-150"
-              leave-from-class="opacity-100 translate-y-0"
-              leave-to-class="opacity-0 translate-y-1"
-          >
-            <div
-                v-if="isOpen"
-                class="absolute right-0 mt-2 w-28 bg-white border rounded-xl shadow-lg overflow-hidden"
-            >
-              <button
-                  v-for="lang in languages"
-                  :key="lang.code"
-                  @click="langSwitcher(lang.code)"
-                  class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition"
+            <template #prefix>
+              <div
+                  class="p-3 border border-transparent rounded-full bg-[#f5f5f5] justify-center hover:bg-[#cacacb] transition"
               >
-                {{ lang.label }}
-              </button>
-            </div>
-          </transition>
-        </div>
+                <img src="../image/img_3.png" alt="search" class="h-5 w-5" />
+              </div>
+            </template>
+          </CInput>
+          <Csearch @cancel="hideHeader" class="border-b-black text-gray-800" v-if="toggleHeader" />
 
-        <!-- Iconlar -->
-        <button>❤️</button>
-        <button>🛒</button>
+          <!-- 🌐 Til tanlash dropdown -->
+          <div class="relative">
+            <button
+                @click="isOpen = !isOpen"
+                class="flex items-center gap-2 border rounded-full px-3 py-1.5 cursor-pointer bg-white shadow-sm hover:bg-gray-50 transition"
+            >
+              <span class="font-medium">{{ currentLangLabel }}</span>
+              <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <transition
+                enter-active-class="transition ease-out duration-200"
+                enter-from-class="opacity-0 translate-y-1"
+                enter-to-class="opacity-100 translate-y-0"
+                leave-active-class="transition ease-in duration-150"
+                leave-from-class="opacity-100 translate-y-0"
+                leave-to-class="opacity-0 translate-y-1"
+            >
+              <div
+                  v-if="isOpen"
+                  class="absolute right-0 mt-2 w-28 bg-white border rounded-xl shadow-lg overflow-hidden"
+              >
+                <button
+                    v-for="lang in languages"
+                    :key="lang.code"
+                    @click="langSwitcher(lang.code)"
+                    class="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition"
+                >
+                  {{ lang.label }}
+                </button>
+              </div>
+            </transition>
+          </div>
+
+          <!-- Iconlar -->
+          <button>❤️</button>
+          <button>🛒</button>
+        </div>
       </div>
     </div>
 
@@ -153,7 +157,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import {ref, computed, onMounted, watch} from "vue";
 import { useI18n } from "vue-i18n";
 import CInput from "@/components/Form/CInput.vue";
 import Csearch from "@/components/search/Csearch.vue";
@@ -177,6 +181,10 @@ const val = ref("");
 const hideHeader = () => {
   toggleHeader.value = !toggleHeader.value;
 };
+watch(toggleHeader, (newValue)=> {
+  if(newValue)document.body.style.overflow = "hidden";
+  else document.body.style.overflow = "";
+})
 
 // 🌐 Language dropdown
 const languages = ref([
@@ -199,7 +207,7 @@ const langSwitcher = (lang: string) => {
 };
 
 onMounted(() => {
-  const savedLang = localStorage.getItem("locale");
+  const savedLang:String = localStorage.getItem("locale");
   if (savedLang) {
     locale.value = savedLang;
   }

@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div
       class="flex items-center"
       :class="variants[variant], {'!border-red-500': error}"
@@ -31,6 +31,8 @@
 </template>
 
 <script setup lang="ts">
+import {DefineProps} from "vue";
+
 const props = defineProps<{
   modelValue?: string,
   variant?: 'light' | 'dark',
