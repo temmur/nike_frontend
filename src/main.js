@@ -3,6 +3,7 @@ import uz from '@/locale/uz.json'
 import ru from '@/locale/ru.json'
 import en from '@/locale/en.json'
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 const app = createApp(App);
 import { createI18n } from "vue-i18n";
@@ -23,5 +24,6 @@ const i18n = createI18n({
     }
 })
 app.use(i18n)
+app.use(createPinia())
 app.use(router).mount('#app')
 // createApp(App).use(router).mount('#app')

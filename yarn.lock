@@ -789,6 +789,13 @@
   resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.6.4.tgz"
   integrity sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==
 
+"@vue/devtools-api@^7.7.2":
+  version "7.7.7"
+  resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-7.7.7.tgz"
+  integrity sha512-lwOnNBH2e7x1fIIbVT7yF5D+YWhqELm55/4ZKf45R9T8r9dE2AIOy8HKjfqzGsoTHFbWbr337O4E0A0QADnjBg==
+  dependencies:
+    "@vue/devtools-kit" "^7.7.7"
+
 "@vue/devtools-core@^8.0.1":
   version "8.0.1"
   resolved "https://registry.npmjs.org/@vue/devtools-core/-/devtools-core-8.0.1.tgz"
@@ -800,6 +807,19 @@
     nanoid "^5.1.5"
     pathe "^2.0.3"
     vite-hot-client "^2.1.0"
+
+"@vue/devtools-kit@^7.7.7":
+  version "7.7.7"
+  resolved "https://registry.npmjs.org/@vue/devtools-kit/-/devtools-kit-7.7.7.tgz"
+  integrity sha512-wgoZtxcTta65cnZ1Q6MbAfePVFxfM+gq0saaeytoph7nEa7yMXoi6sCPy4ufO111B9msnw0VOWjPEFCXuAKRHA==
+  dependencies:
+    "@vue/devtools-shared" "^7.7.7"
+    birpc "^2.3.0"
+    hookable "^5.5.3"
+    mitt "^3.0.1"
+    perfect-debounce "^1.0.0"
+    speakingurl "^14.0.1"
+    superjson "^2.2.2"
 
 "@vue/devtools-kit@^8.0.1":
   version "8.0.1"
@@ -813,6 +833,13 @@
     perfect-debounce "^1.0.0"
     speakingurl "^14.0.1"
     superjson "^2.2.2"
+
+"@vue/devtools-shared@^7.7.7":
+  version "7.7.7"
+  resolved "https://registry.npmjs.org/@vue/devtools-shared/-/devtools-shared-7.7.7.tgz"
+  integrity sha512-+udSj47aRl5aKb0memBvcUG9koarqnxNM5yjuREvqwK6T3ap4mn3Zqqc17QrBFTqSMjr3HK1cvStEZpMDpfdyw==
+  dependencies:
+    rfdc "^1.4.1"
 
 "@vue/devtools-shared@^8.0.1":
   version "8.0.1"
@@ -890,7 +917,7 @@ axios@^1.11.0:
     form-data "^4.0.4"
     proxy-from-env "^1.1.0"
 
-birpc@^2.4.0, birpc@^2.5.0:
+birpc@^2.3.0, birpc@^2.4.0, birpc@^2.5.0:
   version "2.5.0"
   resolved "https://registry.npmjs.org/birpc/-/birpc-2.5.0.tgz"
   integrity sha512-VSWO/W6nNQdyP520F1mhf+Lc2f8pjGQOtoHHm7Ze8Go1kX7akpVIrtTa0fn+HB0QJEDVacl6aO08YE0PgXfdnQ==
@@ -1519,6 +1546,13 @@ picocolors@^1.1.1:
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-4.0.3.tgz"
   integrity sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==
 
+pinia@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/pinia/-/pinia-3.0.3.tgz"
+  integrity sha512-ttXO/InUULUXkMHpTdp9Fj4hLpD/2AoJdmAbAeW2yu1iy1k+pkFekQXw5VpC0/5p51IOR/jDaDRfRWRnMMsGOA==
+  dependencies:
+    "@vue/devtools-api" "^7.7.2"
+
 postcss-value-parser@^4.2.0:
   version "4.2.0"
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
@@ -1784,7 +1818,7 @@ vue-router@^4.5.1:
   dependencies:
     "@vue/devtools-api" "^6.6.4"
 
-vue@^3.0.0, vue@^3.2.0, vue@^3.2.25, vue@^3.5.18, vue@3.5.20:
+"vue@^2.7.0 || ^3.5.11", vue@^3.0.0, vue@^3.2.0, vue@^3.2.25, vue@^3.5.18, vue@3.5.20:
   version "3.5.20"
   resolved "https://registry.npmjs.org/vue/-/vue-3.5.20.tgz"
   integrity sha512-2sBz0x/wis5TkF1XZ2vH25zWq3G1bFEPOfkBcx2ikowmphoQsPH6X0V3mmPCXA2K1N/XGTnifVyDQP4GfDDeQw==
