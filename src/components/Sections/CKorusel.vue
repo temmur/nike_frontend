@@ -36,7 +36,7 @@
         <!-- Rasm -->
        <router-link :to="{name: 'ProductSingle', params: {id: item?.id}}">
          <div class="w-full h-85 flex items-center justify-center bg-gray-100 rounded-xl"
-         @click="fetchProduct(item)"
+         @click="saveProduct(item)"
          >
            <img
                :src="item.image"
@@ -57,9 +57,8 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 
-import {getProduct} from "@/store/getProduct";
-const productData = getProduct()
-
+import { useProductStore } from "@/store/getProduct";
+const productStore = useProductStore();
 interface Item {
   image: string
   title: string
@@ -77,8 +76,13 @@ const items: Item[] = [
 ]
 
 const carousel = ref<HTMLDivElement | null>(null)
-const fetchProduct = productData.getProduct
-const shoesData = computed(()=> items)
+
+
+const shoesData = computed(() => items);
+
+const saveProduct = (item: Item) => {
+  productStore.setProduct(item);
+};
 const scrollLeft = () => {
   carousel.value?.scrollBy({ left: -250, behavior: 'smooth' })
 }
