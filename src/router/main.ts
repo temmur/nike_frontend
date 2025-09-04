@@ -9,9 +9,9 @@ const routes = [
         path: '/',
         component: Layout, // layout with header/footer
         children: [
-            { path: '/', name: 'Home', component: Home },
-            { path: 'About', name: 'Projects', component: About, alias: ['about', 'spark', 'yangi'] },
-            {path: '/products/:id', name: 'ProductSingle', component: PSingle}
+            { path: '/', name: 'Home', component: Home, meta: { breadcrumb: "Home" } },
+            { path: 'About', name: 'Projects', component: About, alias: ['about', 'spark', 'yangi',], meta: {breadcrumb: "About"}  },
+            {path: '/products/:id', name: 'ProductSingle', component: PSingle, meta: {breadcrumb: "Single"} }
         ]
     },
     {
