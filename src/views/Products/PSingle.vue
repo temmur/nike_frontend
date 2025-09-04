@@ -2,6 +2,8 @@
 import { ref, onMounted } from "vue"
 import { useRoute, useRouter } from "vue-router"
 import { getProductById } from "@/api/products"
+import {getProduct} from "@/store/getProduct.js";
+
 
 const product = ref(null)
 const loading = ref(true)

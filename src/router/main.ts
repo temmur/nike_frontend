@@ -11,7 +11,7 @@ const routes = [
         children: [
             { path: '/', name: 'Home', component: Home, meta: { breadcrumb: "Home" } },
             { path: 'About', name: 'Projects', component: About, alias: ['about', 'spark', 'yangi',], meta: {breadcrumb: "About"}  },
-            {path: '/products/:id', name: 'ProductSingle', component: PSingle, meta: {breadcrumb: "Single"} }
+            {path: '/products/:id', name: 'ProductSingle', component: PSingle, }
         ]
     },
     {
