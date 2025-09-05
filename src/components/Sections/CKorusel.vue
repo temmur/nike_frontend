@@ -28,7 +28,6 @@
         ref="carousel"
         class="flex gap-6 overflow-x-auto px-15 scrollbar-hide scroll-smooth"
     >
-      <p v-for="(el, idx) in data">{{el}}</p>
       <div
           v-for="(item, index) in shoesData"
           :key="index"
@@ -37,7 +36,7 @@
         <!-- Rasm -->
        <router-link :to="{name: 'ProductSingle', params: {id: item?.id}}">
          <div class="w-full h-85 flex items-center justify-center bg-gray-100 rounded-xl"
-         @click="fetchProduct(item)"
+         @click="saveProduct(item)"
          >
            <img
                :src="item.image"
@@ -57,10 +56,9 @@
 
 <script setup lang="ts">
 import {computed, ref} from 'vue'
-import {getProducts} from '@/api/products'
-import {getProduct} from "@/store/getProduct";
-const productData = getProduct()
-const data = computed(()=> getProducts())
+
+import { useProductStore } from "@/store/getProduct";
+const productStore = useProductStore();
 interface Item {
   image: string
   title: string
@@ -78,8 +76,13 @@ const items: Item[] = [
 ]
 
 const carousel = ref<HTMLDivElement | null>(null)
-const fetchProduct = productData.getProduct
-const shoesData = computed(()=> items)
+
+
+const shoesData = computed(() => items);
+
+const saveProduct = (item: Item) => {
+  productStore.setProduct(item);
+};
 const scrollLeft = () => {
   carousel.value?.scrollBy({ left: -250, behavior: 'smooth' })
 }
