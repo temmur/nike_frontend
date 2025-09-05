@@ -28,6 +28,7 @@
         ref="carousel"
         class="flex gap-6 overflow-x-auto px-15 scrollbar-hide scroll-smooth"
     >
+      <p v-for="(el, idx) in data">{{el}}</p>
       <div
           v-for="(item, index) in shoesData"
           :key="index"
@@ -56,10 +57,10 @@
 
 <script setup lang="ts">
 import {computed, ref} from 'vue'
-
+import {getProducts} from '@/api/products'
 import {getProduct} from "@/store/getProduct";
 const productData = getProduct()
-
+const data = computed(()=> getProducts())
 interface Item {
   image: string
   title: string
