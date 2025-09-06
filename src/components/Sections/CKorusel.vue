@@ -1,5 +1,6 @@
 <template>
   <section class="w-full py-8 relative">
+    <p>hello</p>
     <!-- Title + Buttons -->
     <div class="flex items-center justify-center gap-3 mb-6 relative">
       <h2 class="text-xl font-semibold">Shop The Classics</h2>
@@ -75,14 +76,13 @@ const items: Item[] = [
   { image: '/public/images/7.jpeg', title: 'Cortez', id: 7 }
 ]
 
-
 const carousel = ref<HTMLDivElement | null>(null)
 
 
 const shoesData = computed(() => items);
 
 const saveProduct = (item: Item) => {
-  productStore.seyartProduct(item);
+  productStore.setProduct(item);
 };
 const scrollLeft = () => {
   carousel.value?.scrollBy({ left: -250, behavior: 'smooth' })
