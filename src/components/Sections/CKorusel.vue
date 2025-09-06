@@ -75,6 +75,7 @@ const items: Item[] = [
   { image: '/public/images/7.jpeg', title: 'Cortez', id: 7 }
 ]
 
+
 const carousel = ref<HTMLDivElement | null>(null)
 
 
