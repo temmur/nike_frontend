@@ -1,19 +1,24 @@
 <template>
   <div class="flex items-center text-sm py-5 font-bold">
-    <router-link to="/" class="flex items-center"
-    ><i class="icon-house-medical text-base text-white mr-1"></i>
-      Home</router-link
-    >
+    <!-- Asosiy Home -->
+    <router-link to="/" class="flex items-center">
+      <i class="icon-house-medical text-base text-white mr-1"></i>
+      Home
+    </router-link>
+
+    <!-- Separator -->
     <span v-if="routes?.length > 0" class="mx-1">/</span>
-    <template v-for="(breadcrumbItem, index) in routes">
+
+    <!-- Qolgan route-lar -->
+    <template v-for="(breadcrumbItem, index) in routes" :key="index">
       <span v-if="index !== routes?.length - 1">
-        <router-link :to="breadcrumbItem.link">{{
-            breadcrumbItem.label
-          }}</router-link>
+        <router-link :to="breadcrumbItem.link">
+          {{ breadcrumbItem.label }}
+        </router-link>
       </span>
-      <span v-else class="text-gray-500 line-clamp-1">{{
-          breadcrumbItem.label
-        }}</span>
+      <span v-else class="text-gray-500 line-clamp-1">
+        {{ breadcrumbItem.label }}
+      </span>
       <span v-if="index !== routes?.length - 1" class="mx-1">></span>
     </template>
   </div>
@@ -22,10 +27,9 @@
 <script setup lang="ts">
 interface Props {
   routes: {
-    label: string;
-    link: string;
-  }[];
+    label: string
+    link: string
+  }[]
 }
-defineProps<Props>();
-
+defineProps<Props>()
 </script>

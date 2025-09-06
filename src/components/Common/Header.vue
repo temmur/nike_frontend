@@ -2,24 +2,24 @@
   <header class="w-full shadow-sm relative z-50">
     <!-- TOP BAR -->
     <div class="bg-gray-50 text-sm px-6 py-2">
-    <div class="container flex items-center justify-between">
-      <!-- Chap: boshqa logolar -->
-      <div class="flex items-center space-x-4">
-        <img src="../image/img.png" alt="Jordan" class="h-4 cursor-pointer" />
-        <img src="../image/img_1.png" alt="Converse" class="h-4 cursor-pointer" />
-      </div>
+      <div class="container flex items-center justify-between">
+        <!-- Chap: boshqa logolar -->
+        <div class="flex items-center space-x-4">
+          <img src="../image/img.png" alt="Jordan" class="h-4 cursor-pointer" />
+          <img src="../image/img_1.png" alt="Converse" class="h-4 cursor-pointer" />
+        </div>
 
-      <!-- O‘ng: links -->
-      <div class="flex items-center space-x-4 text-gray-800">
-        <a href="#" class="hover:text-black">{{ t('header.find') }}</a>
-        <span>|</span>
-        <a href="#" class="hover:text-black">{{ t('header.help') }}</a>
-        <span>|</span>
-        <a href="#" class="hover:text-black">{{ t('header.join') }}</a>
-        <span>|</span>
-        <a href="#" class="hover:text-black">{{ t('header.signin') }}</a>
+        <!-- O‘ng: links -->
+        <div class="flex items-center space-x-4 text-gray-800">
+          <a href="#" class="hover:text-black">{{ t('header.find') }}</a>
+          <span>|</span>
+          <a href="#" class="hover:text-black">{{ t('header.help') }}</a>
+          <span>|</span>
+          <a href="#" class="hover:text-black">{{ t('header.join') }}</a>
+          <span>|</span>
+          <a href="#" class="hover:text-black">{{ t('header.signin') }}</a>
+        </div>
       </div>
-    </div>
     </div>
 
     <!-- MAIN HEADER -->
@@ -39,12 +39,12 @@
               @mouseenter="hoverMenu = menu.key"
               @mouseleave="hoverMenu = null"
           >
-          <span
-              class="font-medium hover:text-gray-800 border-b-2 border-transparent"
-              :class="{ 'border-black': hoverMenu === menu.key }"
-          >
-            {{ t('header.' + menu.key) }}
-          </span>
+            <span
+                class="font-medium hover:text-gray-800 border-b-2 border-transparent"
+                :class="{ 'border-black': hoverMenu === menu.key }"
+            >
+              {{ t('header.' + menu.key) }}
+            </span>
           </div>
         </nav>
 
@@ -112,7 +112,7 @@
 
           <!-- Iconlar -->
           <button>❤️</button>
-          <button>🛒</button>
+          <button @click="bagOpen = true">🛒</button>
         </div>
       </div>
     </div>
@@ -153,14 +153,23 @@
         </div>
       </div>
     </div>
+
+    <!-- 🛒 Bag Modal -->
+    <Modal :open="bagOpen" @close="bagOpen = false">
+      <Bag />
+    </Modal>
   </header>
 </template>
 
 <script setup lang="ts">
-import {ref, computed, onMounted, watch} from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import CInput from "@/components/Form/CInput.vue";
 import Csearch from "@/components/search/Csearch.vue";
+
+// 🆕 qo‘shilgan
+import Bag from "@/components/Bag.vue";
+import Modal from "@/components/Modal.vue";
 
 const { t, locale } = useI18n();
 
@@ -181,10 +190,10 @@ const val = ref("");
 const hideHeader = () => {
   toggleHeader.value = !toggleHeader.value;
 };
-watch(toggleHeader, (newValue)=> {
-  if(newValue)document.body.style.overflow = "hidden";
+watch(toggleHeader, (newValue) => {
+  if (newValue) document.body.style.overflow = "hidden";
   else document.body.style.overflow = "";
-})
+});
 
 // 🌐 Language dropdown
 const languages = ref([
@@ -207,9 +216,12 @@ const langSwitcher = (lang: string) => {
 };
 
 onMounted(() => {
-  const savedLang:String = localStorage.getItem("locale");
+  const savedLang: string = localStorage.getItem("locale") || "";
   if (savedLang) {
     locale.value = savedLang;
   }
 });
+
+// 🆕 Bag modal state
+const bagOpen = ref(false);
 </script>

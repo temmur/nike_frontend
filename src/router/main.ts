@@ -15,10 +15,10 @@ const routes = [
         ]
     },
     {
-  path: '/:pathMatch(.*)*', // для любых несуществующих путей
-  name: 'NotFound',
-  component: () => import('../views/NotFound.vue') // или прямой импорт
-}
+        path: '/:pathMatch(.*)*', // для любых несуществующих путей
+        name: 'NotFound',
+        component: () => import('../views/NotFound.vue') // или прямой импорт
+    }
 ]
 
 const router = createRouter({
@@ -27,4 +27,3 @@ const router = createRouter({
 })
 
 export default router
-
