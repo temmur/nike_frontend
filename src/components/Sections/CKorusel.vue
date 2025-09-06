@@ -81,7 +81,7 @@ const carousel = ref<HTMLDivElement | null>(null)
 const shoesData = computed(() => items);
 
 const saveProduct = (item: Item) => {
-  productStore.setProduct(item);
+  productStore.seyartProduct(item);
 };
 const scrollLeft = () => {
   carousel.value?.scrollBy({ left: -250, behavior: 'smooth' })
