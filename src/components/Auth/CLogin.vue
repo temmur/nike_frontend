@@ -79,7 +79,6 @@
         Password is required
       </p>
     </div>
-
     <button
         type="button"
         class="bg-blue-600 hover:bg-blue-700 text-white rounded w-full py-2 transition"
@@ -87,6 +86,11 @@
         @click="submitForm"
     >
       {{ loading ? 'Loading…' : 'Login' }}
+    </button>
+    <button  class="bg-red-600 hover:bg-red-700 text-white rounded w-full py-2 transition"
+             @click="$emit('on-change', 'register')"
+    >
+      {{ loading ? 'Loading…' : 'Registration' }}
     </button>
   </div>
 </template>

@@ -47,7 +47,7 @@ const steps = {
   login: AuthLogin,
   register: AuthRegister,
   password: AuthResetPassword,
-  otp: COtp
+  // otp: COtp
 }
 const closeModal=()=> {
   authStore.modalShow = false
