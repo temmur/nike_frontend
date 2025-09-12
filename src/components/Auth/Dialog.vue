@@ -33,6 +33,7 @@
 </template>
 <script setup lang="ts">
 import UIDialog from '@/components/UI/Dialog.vue'
+import COtp from "@/components/Auth/COtp.vue";
 import AuthLogin from "@/components/Auth/CLogin.vue";
 import AuthResetPassword from "@/components/Auth/ResetPassword/CIndex.vue"
 import AuthRegister from '@/components/Auth/Registration/CIndex.vue'
@@ -46,6 +47,7 @@ const steps = {
   login: AuthLogin,
   register: AuthRegister,
   password: AuthResetPassword,
+  otp: COtp
 }
 const closeModal=()=> {
   authStore.modalShow = false
