@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities; */
 @import "tailwindcss";
+@import "./icomoon/style.css";
 
 .container{
     width: 100%;

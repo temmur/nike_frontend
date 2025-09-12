@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useAuthStore = defineStore('authStore', {
     state: () => ({
-        modalShow: true,
+        modalShow: false,
         currentStep: 'login',
         registerStatus: false,
         registerStep: 'reg'
