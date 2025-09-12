@@ -1,4 +1,5 @@
 <template>
+  <CAuthDialog/>
   <div class="flex flex-col min-h-screen">
     <Header />
     <main class="h-full grow">
@@ -10,4 +11,5 @@
 <script setup>
 import Header from "@/components/Common/Header.vue";
 import Footer from "@/components/Common/Footer.vue";
+import CAuthDialog from '@/components/Auth/Dialog.vue'
 </script>

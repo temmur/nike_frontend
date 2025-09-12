@@ -16,8 +16,9 @@
           <a href="#" class="hover:text-black">{{ t('header.help') }}</a>
           <span>|</span>
           <a href="#" class="hover:text-black">{{ t('header.join') }}</a>
+          {{show}}
           <span>|</span>
-          <a href="#" class="hover:text-black">{{ t('header.signin') }}</a>
+          <a href="#" class="hover:text-black" @click="openDialog">{{ t('header.signin') }}</a>
         </div>
       </div>
     </div>
@@ -166,7 +167,9 @@ import { ref, computed, onMounted, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import CInput from "@/components/Form/CInput.vue";
 import Csearch from "@/components/search/Csearch.vue";
-
+import {useAuthStore} from "@/store/auth";
+const authStore = useAuthStore()
+const show = computed(() => authStore.modalShow)
 // 🆕 qo‘shilgan
 import Bag from "@/components/Bag.vue";
 import Modal from "@/components/Modal.vue";
@@ -186,7 +189,7 @@ const hoverMenu = ref<string | null>(null);
 const insideMenu = ref(false);
 const toggleHeader = ref(false);
 const val = ref("");
-
+const state = ref(false)
 const hideHeader = () => {
   toggleHeader.value = !toggleHeader.value;
 };
@@ -214,7 +217,9 @@ const langSwitcher = (lang: string) => {
   localStorage.setItem("locale", lang);
   isOpen.value = false;
 };
-
+const openDialog = () => {
+  authStore.modalShow = true; // update directly
+};
 onMounted(() => {
   const savedLang: string = localStorage.getItem("locale") || "";
   if (savedLang) {
