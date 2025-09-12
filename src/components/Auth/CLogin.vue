@@ -1,6 +1,8 @@
 <template>
  <div>
    <p>This is login Page</p>
+   <p>Input number</p>
+   <p>Input parol </p>
  </div>
 </template>
 <script setup lang="ts">
